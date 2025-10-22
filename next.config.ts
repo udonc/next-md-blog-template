@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  rewrites: async () => {
+    return [
+      {
+        source: "/post/:slug.md",
+        destination: "/post/:slug/md",
+      },
+    ];
+  },
 };
 
 const withMdx = createMdx({
