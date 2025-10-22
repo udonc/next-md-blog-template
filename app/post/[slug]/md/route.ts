@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { notFound } from "next/navigation";
 
 /**
  * マークダウンファイルのパスを取得する関数
@@ -27,7 +26,7 @@ export async function GET(
     .catch(() => false);
 
   if (!fileExists) {
-    return notFound();
+    return new Response("Not Found", { status: 404 });
   }
 
   // ファイルの内容を読み込む
