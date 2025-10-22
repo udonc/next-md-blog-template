@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { notFound } from "next/navigation";
 
 /**
  * マークダウンファイルのパスを取得する関数
@@ -13,7 +13,7 @@ async function getMarkdownFilePath(slug: string) {
 }
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
